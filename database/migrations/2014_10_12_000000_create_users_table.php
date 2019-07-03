@@ -26,6 +26,10 @@ class CreateUsersTable extends Migration
             $table->date('birth_date')->useCurrent();
             $table->integer('max_distance');
             $table->integer('hourly_rate');
+
+            //Nouvelle ajout de colonnes
+            $table->double('longitude', 15, 8);
+            $table->double('latitude', 15, 8);
         });
     }
 
