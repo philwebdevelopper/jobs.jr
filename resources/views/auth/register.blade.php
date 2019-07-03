@@ -55,25 +55,9 @@
 							<label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Date de naissance') }}</label>
 
 							<div class="col-md-6">
-								<input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date" autofocus>
+								<input id="birth_date" type="date" class="form-control @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" autocomplete="birth_date" required>
 
 								@error('birth_date')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-								@enderror
-							</div>
-						</div>
-
-						{{-- Distance max, périmètre du service --}}
-						<div class="form-group row">
-							<label for="max_distance" class="col-md-4 col-form-label text-md-right">{{ __('Distance de déplacement (km)') }}</label>
-
-							<div class="col-md-6">
-								<input id="max_distance" type="range" min="5" max="1000" class="form-control @error('max_distance') is-invalid @enderror" name="max_distance" value="{{ old('max_distance') }}" required autocomplete="max_distance" autofocus>
-								<input type="text" id="max_distance_value" value="">
-
-								@error('max_distance')
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $message }}</strong>
 									</span>
@@ -86,9 +70,42 @@
 							<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Courriel') }}</label>
 
 							<div class="col-md-6">
-								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+								<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" required>
 
 								@error('email')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+							</div>
+						</div>
+
+						{{-- Distance max, périmètre du service --}}
+						<div class="form-group row">
+							<label for="max_distance" class="col-md-4 col-form-label text-md-right">{{ __('Distance de déplacement (km)') }}</label>
+
+							<div class="col-md-6">
+								<input id="max_distance" type="range" min="5" max="1000" class="form-control @error('max_distance') is-invalid @enderror" name="max_distance" value="30" required autocomplete="max_distance" onchange="updateMaxDistanceValue(this.value);">
+
+								{{-- Affichage de la valeur --}}
+								<input type="text" id="max_distance_value" value="">
+
+								@error('max_distance')
+									<span class="invalid-feedback" role="alert">
+										<strong>{{ $message }}</strong>
+									</span>
+								@enderror
+							</div>
+						</div>
+
+						{{-- Taux horaire --}}
+						<div class="form-group row">
+							<label for="hourly_rate" class="col-md-4 col-form-label text-md-right">{{ __('Taux horaire') }}</label>
+
+							<div class="col-md-6">
+								<input id="hourly_rate" type="number" class="form-control @error('hourly_rate') is-invalid @enderror" name="hourly_rate" value="15" required autocomplete="hourly_rate">
+
+								@error('hourly_rate')
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $message }}</strong>
 									</span>

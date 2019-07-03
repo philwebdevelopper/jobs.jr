@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             // Ajout des nouvelles colonnes:
             $table->date('birth_date')->useCurrent();
             $table->integer('max_distance');
-            $table->float('hourly_rate', 3, 2);
+            $table->integer('hourly_rate');
         });
     }
 
