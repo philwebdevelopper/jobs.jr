@@ -1,4 +1,4 @@
-$() => {
+$(() => {
 
     // Afficher la valeur du range max_distance form register
 	function updateTextInput(val) {
@@ -8,4 +8,4 @@ $() => {
 
 
 
-}
+})
