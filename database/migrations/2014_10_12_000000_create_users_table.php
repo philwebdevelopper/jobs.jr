@@ -30,14 +30,14 @@ class CreateUsersTable extends Migration
             $table->BigInteger('location_id')->unsigned()->nullable()->index();
 
             //Nouvelle ajout de colonnes
-            $table->double('longitude', 15, 8);
-            $table->double('latitude', 15, 8);
+            // $table->double('longitude', 15, 8);
+            // $table->double('latitude', 15, 8);
 
         });
 
-       Schema::table('users', function($table) {
-         $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
-       });
+       // Schema::table('users', function($table) {
+       //   $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
+       // });
     }
 
     /**
