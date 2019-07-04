@@ -14,6 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
             $table->bigIncrements('id');
             $table->string('name', 20);
             $table->string('email', 50)->unique();
@@ -26,7 +27,17 @@ class CreateUsersTable extends Migration
             $table->date('birth_date')->useCurrent();
             $table->integer('max_distance');
             $table->integer('hourly_rate');
+            $table->BigInteger('location_id')->unsigned()->fixed();
+
+            //Nouvelle ajout de colonnes
+            $table->double('longitude', 15, 8);
+            $table->double('latitude', 15, 8);
+
         });
+
+       Schema::table('users', function($table) {
+         $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
+       });
     }
 
     /**
