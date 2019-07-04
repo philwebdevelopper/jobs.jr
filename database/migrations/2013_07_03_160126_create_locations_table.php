@@ -19,7 +19,7 @@ class CreateLocationsTable extends Migration
             $table->string('street', 191);
             $table->string('zip_code', 191);
             $table->string('city', 191);
-            $table->integer('apartement');
+            $table->integer('apartment');
             $table->timestamps();
         });
     }
