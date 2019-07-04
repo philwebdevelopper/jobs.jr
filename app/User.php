@@ -41,10 +41,10 @@ class User extends Authenticatable
     /**
     * Relationships between tables
     */
-    public function service() {
-        return $this->hasMany(Service::class);
+    public function services() {
+        return $this->belongsToMany(Service::class);
     }
     public function availability() {
-        return $this->hasMany(Availability::class);
+        return $this->belongsToMany(Availability::class);
     }
 }
