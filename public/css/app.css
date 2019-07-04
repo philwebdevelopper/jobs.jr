@@ -11100,3 +11100,8 @@ a.text-dark:focus {
   }
 }
 
+#mapid {
+  width: 100%;
+  height: 500px;
+}
+
