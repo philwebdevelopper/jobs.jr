@@ -192,6 +192,53 @@
 							@enderror
 						</div>
 
+						{{-- DISPONIBILITÉS --}}
+						<div class="form-group">
+							<p>Plage des disponibilités</p>
+							<div class="d-flex justify-content-around">
+								{{-- Lundi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="lundi">{{ __('Lundi') }}</label>
+									<input id="lundi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="lundi" value="lundi" required autocomplete="availability">
+								</div>
+								{{-- Mardi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="mardi">{{ __('Mardi') }}</label>
+									<input id="mardi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mardi" value="mardi" required autocomplete="availability">
+								</div>
+								{{-- Mercredi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="mercredi">{{ __('Mercredi') }}</label>
+									<input id="mercredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mercredi" value="mercredi" required autocomplete="availability">
+								</div>
+								{{-- Jeudi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="jeudi">{{ __('Jeudi') }}</label>
+									<input id="jeudi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="jeudi" value="jeudi" required autocomplete="availability">
+								</div>
+								{{-- Vendredi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="vendredi">{{ __('Vendredi') }}</label>
+									<input id="vendredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="vendredi" value="vendredi" required autocomplete="availability">
+								</div>
+								{{-- Samedi --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="samedi">{{ __('Samedi') }}</label>
+									<input id="samedi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="samedi" value="samedi" required autocomplete="availability">
+								</div>
+								{{-- Dimanche --}}
+								<div class="d-flex flex-column">
+									<label class="col-form-label" for="dimanche">{{ __('Dimanche') }}</label>
+									<input id="dimanche" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="dimanche" value="dimanche" required autocomplete="availability">
+								</div>
+							</div>
+							@error('availability')
+								<span class="invalid-feedback" role="alert">
+									<strong>{{ $message }}</strong>
+								</span>
+							@enderror
+						</div>
+
 						{{-- TAUX HORAIRE --}}
 						<div class="form-group row">
 							<label for="hourly_rate" class="col-md-4 col-form-label text-md-right">{{ __('Taux horaire') }}</label>
