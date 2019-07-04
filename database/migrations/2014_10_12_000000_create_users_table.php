@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->date('birth_date')->useCurrent();
             $table->integer('max_distance');
             $table->integer('hourly_rate');
-            $table->BigInteger('location_id')->unsigned()->fixed();
+            $table->BigInteger('location_id')->unsigned()->nullable()->index();
 
             //Nouvelle ajout de colonnes
             $table->double('longitude', 15, 8);

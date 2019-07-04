@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Location;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -71,6 +72,13 @@ class RegisterController extends Controller
             'birth_date' => $data['birth_date'],
             'max_distance' => $data['max_distance'],
             'hourly_rate' => $data['hourly_rate'],
+        ]);
+
+        return Location::create([
+            'street' => $data['street'],
+            'zip_code' => $data['zip_code'],
+            'city' => $data['city'],
+            'apartment' => $data['apartment'],
         ]);
     }
 }

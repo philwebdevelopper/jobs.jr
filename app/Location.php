@@ -13,6 +13,13 @@ class Location extends Model
 	* @var array
 	*/
 	protected $fillable = [
-		'street', 'zip_code', 'city', 'apartment'
+		'street', 'zip_code', 'city', 'apartment', 'user_id'
 	];
+
+	/**
+	* Relationships between tables
+	*/
+	public function users() {
+		return $this->hasOne(User::class);
+	}
 }

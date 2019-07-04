@@ -132,7 +132,7 @@
 							<label for="apartement" class="col-md-4 col-form-label text-md-right">{{ __('No. App.') }}</label>
 							
 							<div class="col-md-6">
-								<input id="apartement" type="number" class="form-control @error('apartement') is-invalid @enderror" name="apartement" value="{{ old('apartement') }}" required autocomplete="apartement">
+								<input id="apartement" type="number" class="form-control @error('apartement') is-invalid @enderror" name="apartement" value="{{ old('apartement') }}" autocomplete="apartement">
 
 								@error('apartement')
 									<span class="invalid-feedback" role="alert">
@@ -167,22 +167,22 @@
 								{{-- Gardiennage --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="gardiennage">{{ __('Gardiennage') }}</label>
-									<input id="gardiennage" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="gardiennage" value="gardiennage" required autocomplete="services">
+									<input id="gardiennage" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="gardiennage" value="gardiennage" autocomplete="services">
 								</div>
 								{{-- Déneigement --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="deneigement">{{ __('Déneigement') }}</label>
-									<input id="deneigement" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="deneigement" value="deneigement" required autocomplete="services">
+									<input id="deneigement" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="deneigement" value="deneigement" autocomplete="services">
 								</div>
 								{{-- Peinture --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="peinture">{{ __('Peinture') }}</label>
-									<input id="peinture" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="peinture" value="peinture" required autocomplete="services">
+									<input id="peinture" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="peinture" value="peinture" autocomplete="services">
 								</div>
 								{{-- Entretien paysager --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="entretien">{{ __('Entretien paysager') }}</label>
-									<input id="entretien" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="entretien" value="entretien" required autocomplete="services">
+									<input id="entretien" type="checkbox" class="form-control @error('services') is-invalid @enderror" name="entretien" value="entretien" autocomplete="services">
 								</div>
 							</div>
 							@error('services')
@@ -199,37 +199,37 @@
 								{{-- Lundi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="lundi">{{ __('Lundi') }}</label>
-									<input id="lundi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="lundi" value="lundi" required autocomplete="availability">
+									<input id="lundi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="lundi" value="lundi" autocomplete="availability">
 								</div>
 								{{-- Mardi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="mardi">{{ __('Mardi') }}</label>
-									<input id="mardi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mardi" value="mardi" required autocomplete="availability">
+									<input id="mardi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mardi" value="mardi" autocomplete="availability">
 								</div>
 								{{-- Mercredi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="mercredi">{{ __('Mercredi') }}</label>
-									<input id="mercredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mercredi" value="mercredi" required autocomplete="availability">
+									<input id="mercredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="mercredi" value="mercredi" autocomplete="availability">
 								</div>
 								{{-- Jeudi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="jeudi">{{ __('Jeudi') }}</label>
-									<input id="jeudi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="jeudi" value="jeudi" required autocomplete="availability">
+									<input id="jeudi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="jeudi" value="jeudi" autocomplete="availability">
 								</div>
 								{{-- Vendredi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="vendredi">{{ __('Vendredi') }}</label>
-									<input id="vendredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="vendredi" value="vendredi" required autocomplete="availability">
+									<input id="vendredi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="vendredi" value="vendredi" autocomplete="availability">
 								</div>
 								{{-- Samedi --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="samedi">{{ __('Samedi') }}</label>
-									<input id="samedi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="samedi" value="samedi" required autocomplete="availability">
+									<input id="samedi" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="samedi" value="samedi" autocomplete="availability">
 								</div>
 								{{-- Dimanche --}}
 								<div class="d-flex flex-column">
 									<label class="col-form-label" for="dimanche">{{ __('Dimanche') }}</label>
-									<input id="dimanche" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="dimanche" value="dimanche" required autocomplete="availability">
+									<input id="dimanche" type="checkbox" class="form-control @error('availability') is-invalid @enderror" name="dimanche" value="dimanche" autocomplete="availability">
 								</div>
 							</div>
 							@error('availability')

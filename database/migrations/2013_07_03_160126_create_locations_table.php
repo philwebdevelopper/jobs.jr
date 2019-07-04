@@ -20,6 +20,7 @@ class CreateLocationsTable extends Migration
             $table->string('zip_code', 191);
             $table->string('city', 191);
             $table->integer('apartment');
+            $table->BigInteger('user_id')->unsigned()->fixed();
             $table->timestamps();
         });
     }
