@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   <h1>Quel est votre demande ?</h1>
-  <form>
+  <form action="{{url('map')}}">
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="email">Email</label>
