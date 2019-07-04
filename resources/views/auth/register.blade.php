@@ -41,7 +41,7 @@
 							</div>
 						</div>
 
-						{{-- Confirmation mmot de passe --}}
+						{{-- Confirmation mot de passe --}}
 						<div class="form-group row">
 							<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmer le mot de passe') }}</label>
 
