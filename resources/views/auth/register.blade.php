@@ -7,7 +7,7 @@
 			<div class="card">
 				<div class="card-header">{{ __('Créer un compte entrepreneur') }}</div>
 
-				<div class="card-body">
+				<div class="card-body background-color">
 					<form method="POST" action="{{ route('register') }}">
 						@csrf
 
