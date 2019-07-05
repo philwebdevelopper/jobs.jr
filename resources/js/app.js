@@ -8,7 +8,8 @@ import 'leaflet/dist/leaflet.css'
 import {GeoSearchControl, OpenStreetMapProvider } from 'leaflet-geosearch';
 const provider = new OpenStreetMapProvider();
 require('./bootstrap');
-require('./script');
+// require('./script');
+require('./geocode');
 
 window.Vue = require('vue');
 
@@ -35,29 +36,22 @@ const app = new Vue({
     el: '#app',
 });
 
-const searchControl = new GeoSearchControl({
-  provider: provider,
-  showMarker: true,                                   // optional: true|false  - default true
-  showPopup: false,                                   // optional: true|false  - default false
-  marker: {                                           // optional: L.Marker    - default L.Icon.Default
-    icon: new L.Icon.Default(),
-    draggable: false,
-  },
-  popupFormat: ({ query, result }) => result.label,   // optional: function    - default returns result label
-  maxMarkers: 1,                                      // optional: number      - default 1
-  retainZoomLevel: false,                             // optional: true|false  - default false
-  animateZoom: true,                                  // optional: true|false  - default true
-  autoClose: false,                                   // optional: true|false  - default false
-  searchLabel: 'Enter address',                       // optional: string      - default 'Enter address'
-  keepResult: false
+console.log(document.getElementById("clientForm"));
+document.getElementById("clientForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const city = $('#city').val();
+  console.log(city);
+  const zipCode = $('#zipCode').val();
+$.ajax({
+  type: 'GET',
+  url: 'https://nominatim.openstreetmap.org/search',
+  data: "q="+city+ ',' + zipCode+"&format=json&addressdetails=1&limit=1&polygon_svg=1"
+}).done(function (response) {
+  if(response != ""){
+    userlat = response[0]['lat'];
+    userlon = response[0]['lon'];
+  }
+}).fail(function (error) {
+  alert(error);
 });
-
-
-
-var mymap = L.map('mapid').setView([46.8123, -71.1767], 13);
-mymap.addControl(searchControl);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-    maxZoom: 18,
-    minZoom: 9
-}).addTo(mymap);
+});

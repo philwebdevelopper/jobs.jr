@@ -66101,9 +66101,10 @@ window.L = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leafl
 
 var provider = new leaflet_geosearch__WEBPACK_IMPORTED_MODULE_1__["OpenStreetMapProvider"]();
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('./script');
 
-__webpack_require__(/*! ./script */ "./resources/js/script.js");
+
+__webpack_require__(/*! ./geocode */ "./resources/js/geocode.js");
 
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
@@ -66126,42 +66127,25 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-var searchControl = new leaflet_geosearch__WEBPACK_IMPORTED_MODULE_1__["GeoSearchControl"]({
-  provider: provider,
-  showMarker: true,
-  // optional: true|false  - default true
-  showPopup: false,
-  // optional: true|false  - default false
-  marker: {
-    // optional: L.Marker    - default L.Icon.Default
-    icon: new L.Icon.Default(),
-    draggable: false
-  },
-  popupFormat: function popupFormat(_ref) {
-    var query = _ref.query,
-        result = _ref.result;
-    return result.label;
-  },
-  // optional: function    - default returns result label
-  maxMarkers: 1,
-  // optional: number      - default 1
-  retainZoomLevel: false,
-  // optional: true|false  - default false
-  animateZoom: true,
-  // optional: true|false  - default true
-  autoClose: false,
-  // optional: true|false  - default false
-  searchLabel: 'Enter address',
-  // optional: string      - default 'Enter address'
-  keepResult: false
+console.log(document.getElementById("clientForm"));
+document.getElementById("clientForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  var city = $('#city').val();
+  console.log(city);
+  var zipCode = $('#zipCode').val();
+  $.ajax({
+    type: 'GET',
+    url: 'https://nominatim.openstreetmap.org/search',
+    data: "q=" + city + ',' + zipCode + "&format=json&addressdetails=1&limit=1&polygon_svg=1"
+  }).done(function (response) {
+    if (response != "") {
+      userlat = response[0]['lat'];
+      userlon = response[0]['lon'];
+    }
+  }).fail(function (error) {
+    alert(error);
+  });
 });
-var mymap = L.map('mapid').setView([46.8123, -71.1767], 13);
-mymap.addControl(searchControl);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
-  maxZoom: 18,
-  minZoom: 9
-}).addTo(mymap);
 
 /***/ }),
 
@@ -66292,19 +66276,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/script.js":
-/*!********************************!*\
-  !*** ./resources/js/script.js ***!
-  \********************************/
+/***/ "./resources/js/geocode.js":
+/*!*********************************!*\
+  !*** ./resources/js/geocode.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$(function () {// FONCTION NE FONCTIONNE PAS, AJOUT TEMPORAIRE AU BAS DU FICHIER APP.BLADE.PHP
-  // Afficher la valeur du range max_distance form register
-  // function updateMaxDistanceValue(val) {
-  // 	document.getElementById('max_distance_value').value=val
-  // }
-});
+
 
 /***/ }),
 
