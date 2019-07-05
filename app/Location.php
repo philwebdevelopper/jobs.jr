@@ -20,6 +20,6 @@ class Location extends Model
 	* Relationships between tables
 	*/
 	public function users() {
-		return $this->hasOne(User::class);
+		return $this->hasOne(User::class, 'location_id', 'id');
 	}
 }
