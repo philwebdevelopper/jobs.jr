@@ -129,12 +129,12 @@
 
 						{{-- Numéro appartement --}}
 						<div class="form-group row">
-							<label for="apartement" class="col-md-4 col-form-label text-md-right">{{ __('No. App.') }}</label>
+							<label for="apartment" class="col-md-4 col-form-label text-md-right">{{ __('No. App.') }}</label>
 							
 							<div class="col-md-6">
-								<input id="apartement" type="number" class="form-control @error('apartement') is-invalid @enderror" name="apartement" value="{{ old('apartement') }}" autocomplete="apartement">
+								<input id="apartment" type="number" class="form-control @error('apartment') is-invalid @enderror" name="apartment" value="{{ old('apartment') }}" autocomplete="apartment">
 
-								@error('apartement')
+								@error('apartment')
 									<span class="invalid-feedback" role="alert">
 										<strong>{{ $message }}</strong>
 									</span>
