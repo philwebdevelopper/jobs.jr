@@ -21,7 +21,6 @@ class CreateLocationsTable extends Migration
 			$table->string('city', 191);
 			$table->integer('apartment');
 			$table->timestamps();
-			$table->BigInteger('user_id')->unsigned()->nullable()->index();
 		});
 	}
 

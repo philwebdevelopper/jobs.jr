@@ -27,10 +27,10 @@ class CreateUsersTable extends Migration
 			$table->date('birth_date')->useCurrent();
 			$table->integer('max_distance');
 			$table->integer('hourly_rate');
-			$table->BigInteger('location_id')->unsigned()->nullable()->index();
-			$table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
+			$table->BigInteger('location_id')->references('id')->on('locations')->onDelete('cascade');
+			$table->unique('location_id');
 
-			//Nouvelle ajout de colonnes
+			//Nouvel ajout de colonnes
 			$table->double('longitude', 15, 8)->default(0);
 			$table->double('latitude', 15, 8)->default(0);
 

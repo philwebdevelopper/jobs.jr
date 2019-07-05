@@ -48,6 +48,6 @@ class User extends Authenticatable
 		return $this->belongsToMany(Availability::class);
 	}
 	public function locations() {
-		return $this->hasOne(Location::class);
+		return $this->belongsTo(Location::class, 'location_id', 'id');
 	}
 }
