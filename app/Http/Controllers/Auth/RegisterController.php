@@ -72,7 +72,6 @@ class RegisterController extends Controller
 			'birth_date' => $data['birth_date'],
 			'max_distance' => $data['max_distance'],
 			'hourly_rate' => $data['hourly_rate'],
-			'location_id' => 1,
 		]);
 
 		Location::create([
@@ -80,7 +79,6 @@ class RegisterController extends Controller
 			'zip_code' => $data['zip_code'],
 			'city' => $data['city'],
 			'apartment' => $data['apartment'],
-			'user_id' => 1,
 		]);
 
 		return $user;
