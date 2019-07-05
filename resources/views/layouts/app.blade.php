@@ -83,7 +83,11 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <script type="text/javascript">
     @yield('script')
+    </script>
+
     <script>
         // Afficher la valeur du range max_distance form register
         function updateMaxDistanceValue(val) {

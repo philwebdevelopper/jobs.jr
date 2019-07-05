@@ -66127,25 +66127,50 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
-console.log(document.getElementById("clientForm"));
-document.getElementById("clientForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-  var city = $('#city').val();
-  console.log(city);
-  var zipCode = $('#zipCode').val();
-  $.ajax({
-    type: 'GET',
-    url: 'https://nominatim.openstreetmap.org/search',
-    data: "q=" + city + ',' + zipCode + "&format=json&addressdetails=1&limit=1&polygon_svg=1"
-  }).done(function (response) {
-    if (response != "") {
-      userlat = response[0]['lat'];
-      userlon = response[0]['lon'];
-    }
-  }).fail(function (error) {
-    alert(error);
-  });
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
 });
+
+if (document.getElementById("mapid")) {
+  var lat = $('#lat').val();
+  var lon = $('#lon').val();
+  var mymap = L.map('mapid').setView([lat, lon], 13);
+  L.marker([lat, lon]).addTo(mymap);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 18,
+    minZoom: 9
+  }).addTo(mymap);
+}
+
+if (document.getElementById("clientForm")) {
+  document.getElementById("clientForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var city = $('#city').val();
+    var zipCode = $('#zipCode').val();
+    var adress = $('#adress1').val();
+    var zipCode1 = zipCode.substr(0, 3);
+    var zipCode2 = zipCode.substr(4, 6);
+    var adresse = adress.replace(" ", "+");
+    $.ajax({
+      type: 'GET',
+      url: 'https://nominatim.openstreetmap.org/search',
+      data: "q=" + city + ',' + adresse + ',' + zipCode1 + '+' + zipCode2 + "&format=json&addressdetails=1&limit=1&polygon_svg=1"
+    }).done(function (response) {
+      if (response != "") {
+        var userlat = response[0]['lat'];
+        var userlon = response[0]['lon'];
+        $('#clientLat').val(userlat);
+        $('#clientLon').val(userlon);
+        document.getElementById("clientForm").submit();
+      }
+    }).fail(function (error) {
+      alert(error);
+    });
+  });
+}
 
 /***/ }),
 

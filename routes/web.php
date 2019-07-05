@@ -23,6 +23,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/map', function () {
+Route::post('/map', function () {
     return view('map');
 });
