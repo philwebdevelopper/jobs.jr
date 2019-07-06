@@ -65,6 +65,17 @@ class RegisterController extends Controller
 	*/
 	protected function create(array $data) {
 
+// dd($data);
+
+		Location::create([
+			'street' => $data['street'],
+			'zip_code' => $data['zip_code'],
+			'city' => $data['city'],
+			'apartment' => $data['apartment'],
+		]);
+		
+		$idLocation = \DB::getPdo()->lastInsertId();
+
 		$user = User::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
@@ -72,13 +83,7 @@ class RegisterController extends Controller
 			'birth_date' => $data['birth_date'],
 			'max_distance' => $data['max_distance'],
 			'hourly_rate' => $data['hourly_rate'],
-		]);
-
-		Location::create([
-			'street' => $data['street'],
-			'zip_code' => $data['zip_code'],
-			'city' => $data['city'],
-			'apartment' => $data['apartment'],
+			'location_id' => $idLocation,
 		]);
 
 		return $user;
