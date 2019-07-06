@@ -17,7 +17,7 @@ class LocationsTableSeeder extends Seeder
 		/**
 		* Add fakes locations
 		*/
-		for ($i = 1; $i <= 20; $i++) {
+		for ($i = 1; $i <= 21; $i++) {
 			DB::table('locations')->insert([
 				'street' => $faker->streetAddress,
 				'zip_code' => $faker->postcode,

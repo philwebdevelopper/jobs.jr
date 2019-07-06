@@ -65,16 +65,8 @@ class RegisterController extends Controller
 	*/
 	protected function create(array $data) {
 
-// dd($data);
-
-		Location::create([
-			'street' => $data['street'],
-			'zip_code' => $data['zip_code'],
-			'city' => $data['city'],
-			'apartment' => $data['apartment'],
-		]);
-		
-		$idLocation = \DB::getPdo()->lastInsertId();
+		$lastIdLocation = \DB::table('locations')->latest('id')->first();
+		$lastIdLocation = $lastIdLocation->id + 1;
 
 		$user = User::create([
 			'name' => $data['name'],
@@ -83,7 +75,14 @@ class RegisterController extends Controller
 			'birth_date' => $data['birth_date'],
 			'max_distance' => $data['max_distance'],
 			'hourly_rate' => $data['hourly_rate'],
-			'location_id' => $idLocation,
+			'location_id' => $lastIdLocation,
+		]);
+
+		Location::create([
+			'street' => $data['street'],
+			'zip_code' => $data['zip_code'],
+			'city' => $data['city'],
+			'apartment' => $data['apartment'],
 		]);
 
 		return $user;
