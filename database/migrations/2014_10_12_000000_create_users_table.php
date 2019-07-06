@@ -35,8 +35,8 @@ class CreateUsersTable extends Migration
 			$table->string('zip_code', 191);
 			$table->string('city', 191);
 			$table->integer('apartment')->nullable();
-			$table->double('longitude', 15, 8)->default(0);
 			$table->double('latitude', 15, 8)->default(0);
+			$table->double('longitude', 15, 8)->default(0);
 
 			// Mot de passe / Token / Date
 			$table->string('password');

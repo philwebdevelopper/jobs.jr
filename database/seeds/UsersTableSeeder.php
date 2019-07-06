@@ -36,7 +36,6 @@ class UsersTableSeeder extends Seeder
 		/**
 		* Add fakes users with real adresses in Québec city (fakes N. apartments)
 		*/
-
 		// Fake user 1
 		DB::table('users')->insert([
 			'name' => $faker->firstName,
