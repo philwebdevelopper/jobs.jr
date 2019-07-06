@@ -19,13 +19,13 @@ class CreateUsersTable extends Migration
 			$table->engine = 'InnoDB';
 			$table->bigIncrements('id');
 
-			// Coordonnées
+			// Infos de base
 			$table->string('name', 20);
 			$table->string('email', 50)->unique();
 			$table->timestamp('email_verified_at')->nullable();
-
-			// Infos supplementaires
 			$table->date('birth_date')->useCurrent();
+
+			// Infos périmètre couvert et taux horaire
 			$table->integer('max_distance');
 			$table->integer('hourly_rate');
 			
