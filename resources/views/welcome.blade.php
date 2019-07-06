@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
 <div class="flex-center position-ref full-height">
-	@if (Route::has('login'))
+
 	<div class="top-right links">
+		<a href="{{ url('/clientForm') }}">Recherche</a>
+		@if (Route::has('login'))
 		@auth
 		<a href="{{ url('/home') }}">Mon compte</a>
 		@else
