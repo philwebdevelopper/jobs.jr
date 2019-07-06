@@ -244,7 +244,7 @@
 							<label for="hourly_rate" class="col-md-4 col-form-label text-md-right">{{ __('Taux horaire') }}</label>
 
 							<div class="col-md-6">
-								<input id="hourly_rate" type="number" class="form-control @error('hourly_rate') is-invalid @enderror" name="hourly_rate" value="15" required autocomplete="hourly_rate">
+								<input id="hourly_rate" type="number" step="0.01" class="form-control @error('hourly_rate') is-invalid @enderror" name="hourly_rate" value="15" required autocomplete="hourly_rate">
 
 								@error('hourly_rate')
 									<span class="invalid-feedback" role="alert">

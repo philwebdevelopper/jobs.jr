@@ -27,14 +27,14 @@ class CreateUsersTable extends Migration
 
 			// Infos périmètre couvert et taux horaire
 			$table->integer('max_distance');
-			$table->integer('hourly_rate');
+			$table->float('hourly_rate');
 			
 
 			// Adresse
 			$table->string('street', 191);
 			$table->string('zip_code', 191);
 			$table->string('city', 191);
-			$table->integer('apartment');
+			$table->integer('apartment')->nullable();
 			$table->double('longitude', 15, 8)->default(0);
 			$table->double('latitude', 15, 8)->default(0);
 
