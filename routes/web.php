@@ -23,6 +23,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+<<<<<<< HEAD
 Route::post('/map', function () {
     return view('map');
 });
+=======
+Route::get('/emailtest', 'testController@test');
+
+Route::post('/testpost', 'testController2@test');
+
+
+>>>>>>> form-validation
