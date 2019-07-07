@@ -14,25 +14,34 @@ class CreateUsersTable extends Migration
 	public function up()
 	{
 		Schema::create('users', function (Blueprint $table) {
+
+			// Type et ID
 			$table->engine = 'InnoDB';
 			$table->bigIncrements('id');
+
+			// Infos de base
 			$table->string('name', 20);
 			$table->string('email', 50)->unique();
 			$table->timestamp('email_verified_at')->nullable();
+			$table->date('birth_date')->useCurrent();
+
+			// Infos périmètre couvert et taux horaire
+			$table->integer('max_distance');
+			$table->float('hourly_rate');
+			
+
+			// Adresse
+			$table->string('street', 191);
+			$table->string('zip_code', 191);
+			$table->string('city', 191);
+			$table->integer('apartment')->nullable();
+			$table->double('latitude', 15, 8)->default(0);
+			$table->double('longitude', 15, 8)->default(0);
+
+			// Mot de passe / Token / Date
 			$table->string('password');
 			$table->rememberToken();
 			$table->timestamps();
-
-			// Ajout des nouvelles colonnes:
-			$table->date('birth_date')->useCurrent();
-			$table->integer('max_distance');
-			$table->integer('hourly_rate');
-			$table->BigInteger('location_id')->references('id')->on('locations')->onDelete('cascade');
-			$table->unique('location_id');
-
-			//Nouvel ajout de colonnes
-			$table->double('longitude', 15, 8)->default(0);
-			$table->double('latitude', 15, 8)->default(0);
 
 		});
 	}

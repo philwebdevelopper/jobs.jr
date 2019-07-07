@@ -17,7 +17,9 @@ class User extends Authenticatable
 	*/
 	protected $fillable = [
 		'name', 'email', 'password',
-		'birth_date', 'max_distance', 'hourly_rate', 'location_id'
+		'birth_date', 'max_distance', 'hourly_rate',
+		'street', 'zip_code', 'city', 'apartment',
+		'latitude', 'longitude'
 	];
 
 	/**
@@ -46,8 +48,5 @@ class User extends Authenticatable
 	}
 	public function availability() {
 		return $this->belongsToMany(Availability::class);
-	}
-	public function locations() {
-		return $this->belongsTo(Location::class, 'location_id', 'id');
 	}
 }
